@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title></title>
+      <meta charset="utf-8" name = "viewport" content = "width=device-width, initial-scale=1.0">
+      <link rel = "stylesheet" href="css/registration_numbers.css">
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "header">
+        <h1>Registration Numbers</h1>
+      </div>
+      <div class="row">
+        <div class = "col-6 moveToRight">
+          <form>
+            <p>
+              Registration Number:
+                <input type="text" name = "registration_number" class = "inPutSize regNum" maxlength="10" />
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class='col-4 moveToRight'>
+          <button class="button-primary " on type="button" name="button" id ="addReg">Add</button>
+        </div>
+      </div>
+      <div class = "row ">
+        <form class="col-8 moveToRight town" name ="formten">
+          <p>Town</p>
+          <select name="towns" >
+            <option  value="all">select town</option>
+            <option  value="capetown" onclick="showSelected();">Cape Town</option>
+            <option  value="bellville" onclick="showSelected();">Bellville</option>
+            <option  value="paarl" onclick="showSelected();">Paarl</option>
+            <option  value="hermunas" onclick="showSelected();">Hermunas</option>
+          </select>
+        </form>
+      </div>
+      <div class = "row">
+        <div class = "col-8 moveToRight displayReg">
+          <ul class = "addHere">
+          </ul>
+      </div>
+    </div>
+  </body>
+  <script src="js/registration_numbers.js"></script>
+  <script src="js/regstration_numbers-dom.js"></script>
+  <script>
+  function showSelected(){
+    document.getElementsByClassName('capeTown').style.visibility = (document.formten.capetown.selected)? "visible":"hidden";
+    document.getElementsByClassName('bellville').style.visibility = (document.formten.bellville.selected)? "visible":"hidden";
+    document.getElementsByClassName('paarl').style.visibility = (document.formten.paarl.selected)? "visible":"hidden";
+    document.getElementsByClassName('hermunas').style.visibility = (document.formten.hermunas.selected)? "visible":"hidden";
+    return true;
+  }
+  </script>
+</html>
