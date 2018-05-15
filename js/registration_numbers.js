@@ -40,14 +40,14 @@ function RegistrationNumbers(){
       else if((registration_number.trim().toUpperCase()).startsWith('CEM') && town==='hermunas'){
         return registration_number.toUpperCase();
       }
-      else if(town === 'all'){
-
-      }
       else if(registration_number ===''){
       }
     }
+    else if(registration_number ==='' && town === 'all'){
+      for(var key in temp)
+        return key.toUpperCase();
   }
-
+}
   var allreg = function(temp){
     for(var key in temp)
       return key.toUpperCase();

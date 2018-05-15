@@ -6,7 +6,8 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CY 231 122');
     reg.enter('CJ 322 937');
     reg.enter('cem 937 554');
-    assert.deepEqual(reg.showAll(reg.objtempReg), 'CA 123 122' , 'CA 123 125', 'CY 231 122','CJ 322 937','CEM 937 554');
+    //reg.objtempReg
+    assert.deepEqual(reg.regTown('','all'), 'CA 123 122' , 'CA 123 125', 'CY 231 122','CJ 322 937','CEM 937 554');
 
   });
   it("It should return Cape Town the registration numbers", function(){
