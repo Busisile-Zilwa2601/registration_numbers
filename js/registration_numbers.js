@@ -1,7 +1,7 @@
 function RegistrationNumbers(){
   var temp = {};
   var takeReg = function(registration_number){
-    if(registration_number != ''){
+    if(Number.isNaN(Number(registration_number)) && (isCapeTown(registration_number) || isBellville(registration_number) ||isPaarl(registration_number) || isHermanus(registration_number)) ){
       if(temp[registration_number.toUpperCase()] === undefined){
         temp[registration_number.toUpperCase()] = 0;
       }
@@ -107,7 +107,7 @@ function RegistrationNumbers(){
   var returnFirst = function(temp){
     return Object.keys(temp)[0];
   }
-  
+
   return{
     enter : takeReg,
     regTown : regFromTown,

@@ -25,7 +25,7 @@ function addRegFunction(){
       }
       else{
         lastElem.trim();
-        var startString = (lastElem.substring(0,1)).toUpperCase();
+        var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY")
           message.innerHTML = lastElem + ' plate added on Bellville';
         else if(startString === "CJ")
@@ -41,7 +41,7 @@ function addRegFunction(){
       }
       else{
         lastElem.trim();
-        var startString = (lastElem.substring(0,1)).toUpperCase();
+        var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CA")
           message.innerHTML = lastElem + ' plate added on Cape Town';
         else if(startString === "CJ")
@@ -57,7 +57,8 @@ function addRegFunction(){
       }
       else{
         lastElem.trim();
-        var startString = (lastElem.substring(0,1)).toUpperCase();
+        var startString = (lastElem.substring(0,2)).toUpperCase();
+        console.log(startString);
         if(startString === "CY")
           message.innerHTML = lastElem + ' plate added on Bellville';
         else if(startString === "CA")
@@ -73,12 +74,12 @@ function addRegFunction(){
       }
       else{
         lastElem.trim();
-        var startString = (lastElem.substring(0,1)).toUpperCase();
+        var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY")
           message.innerHTML = lastElem + ' plate added on Bellville';
         else if(startString === "CA")
             message.innerHTML = lastElem + ' plate added on Cape Town';
-        else
+        else if(startString === "CJ")
             message.innerHTML = lastElem + ' plate added on Paarl';
       }
     }
