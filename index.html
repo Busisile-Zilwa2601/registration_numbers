@@ -26,14 +26,14 @@
         </div>
       </div>
       <div class = "row ">
-        <form class="col-8 moveToRight town" name ="formten">
+        <form class="col-8 moveToRight " name ="formten">
           <p>Town</p>
-          <select name="towns" >
+          <select name="towns" id ="townBox" onchange="changeSelect();">
             <option  value="all">select town</option>
-            <option  value="capetown" onclick="showSelected();">Cape Town</option>
-            <option  value="bellville" onclick="showSelected();">Bellville</option>
-            <option  value="paarl" onclick="showSelected();">Paarl</option>
-            <option  value="hermunas" onclick="showSelected();">Hermunas</option>
+            <option  value="capetown" >Cape Town</option>
+            <option  value="bellville" >Bellville</option>
+            <option  value="paarl">Paarl</option>
+            <option  value="hermanus">Hermanus</option>
           </select>
         </form>
       </div>
@@ -42,6 +42,9 @@
           <ul class = "addHere">
           </ul>
       </div>
+    </div>
+    <div id = "footer">
+      <p></p>
     </div>
   </body>
   <script src="js/registration_numbers.js"></script>
