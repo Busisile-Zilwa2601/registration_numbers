@@ -1,14 +1,14 @@
 function RegistrationNumbers(){
   var temp = {};
   var takeReg = function(registration_number){
-    if(Number.isNaN(Number(registration_number)) && (isCapeTown(registration_number) || isBellville(registration_number) ||isPaarl(registration_number) || isHermanus(registration_number)) ){
+    if(Number.isNaN(Number(registration_number)) && (isCapeTown(registration_number) || isBellville(registration_number) ||isPaarl(registration_number) || isHermanus(registration_number))){
       if(temp[registration_number.toUpperCase()] === undefined){
         temp[registration_number.toUpperCase()] = 0;
       }
       if(temp[registration_number.toUpperCase()] === 1){
         return false;
       }
-      else{
+      else if(temp[registration_number.toUpperCase()] === 0){
         temp[registration_number.toUpperCase()] += 1;
         return true;
       }

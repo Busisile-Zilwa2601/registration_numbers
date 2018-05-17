@@ -15,7 +15,7 @@
           <form>
             <p>
               Registration Number:
-                <input type="text" name = "registration_number" class = "inPutSize regNum" maxlength="10" />
+                <input type="text" name = "registration_number" class = "inPutSize regNum" placeholder="Ente registrations plate" maxlength="10" />
             </p>
           </form>
         </div>
@@ -27,9 +27,9 @@
       </div>
       <div class = "row ">
         <form class="col-8 moveToRight " name ="formten">
-          <p>Town</p>
+          <p>Select Town</p>
           <select name="towns" id ="townBox" onchange="changeSelect();">
-            <option  value="all">select town</option>
+            <option  value="all">All towns</option>
             <option  value="capetown" >Cape Town</option>
             <option  value="bellville" >Bellville</option>
             <option  value="paarl">Paarl</option>
@@ -43,19 +43,10 @@
           </ul>
       </div>
     </div>
-    <div id = "footer">
-      <p></p>
+    <div class="footer">
+      <p><span id ='plate'></span><span id = "footer"></span></p>
     </div>
   </body>
   <script src="js/registration_numbers.js"></script>
   <script src="js/regstration_numbers-dom.js"></script>
-  <script>
-  function showSelected(){
-    document.getElementsByClassName('capeTown').style.visibility = (document.formten.capetown.selected)? "visible":"hidden";
-    document.getElementsByClassName('bellville').style.visibility = (document.formten.bellville.selected)? "visible":"hidden";
-    document.getElementsByClassName('paarl').style.visibility = (document.formten.paarl.selected)? "visible":"hidden";
-    document.getElementsByClassName('hermunas').style.visibility = (document.formten.hermunas.selected)? "visible":"hidden";
-    return true;
-  }
-  </script>
 </html>
