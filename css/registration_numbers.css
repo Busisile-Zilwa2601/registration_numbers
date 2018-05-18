@@ -6,6 +6,10 @@
       clear: both;
       display: table;
 }
+[class*="col-"] {
+    float: left;
+    padding: 9px;
+}
 .container {
   position: relative;
   width: 100%;
@@ -28,8 +32,7 @@ html {
     border : 3px solid black;
     border-radius: 10px;
 }
-
-
+/*For mobile phones*/
 [class*="col-"] {
     width: 100%;
 }
@@ -41,7 +44,6 @@ html {
 .displayReg li {
     padding: 8px;
     margin-top: 7px;
-    /*margin-bottom: 7px;*/
     background-color: yellow;
     color: black;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -49,18 +51,35 @@ html {
     border-radius: 5px;
     text-align: center;
     max-width: 150px;
+    min-width: 150px;
+
 }
-.displayRegIn{
-    padding: 8px;
-    margin-top: 7px;
-    /*margin-bottom: 7px;*/
-    background-color: yellow;
-    color: black;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border: 2px solid black;
-    border-radius: 5px;
-    text-align: center;
-    max-width: 150px;
+.displayInstruction{
+  padding: 7px;
+  margin: 7px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  text-align: center;
+  top:inherit;
+  max-width: 750px;
+  white-space: pre-line;
+  max-height: 6rem;
+}
+.plates i{
+  background-color: silver;
+  min-width: 50px;
+  border-radius: 2.5px;
+  text-align: center;
+}
+.appInstruction{
+  padding: 7px;
+  margin: 7px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  text: center;
+  font-family:"Times New Roman", Helvetica, cursive ,fantasy,Times, Arial;
+  font-weight: 200;
+  color: black;
 }
 .footer{
   margin-top: 10px;
@@ -68,6 +87,10 @@ html {
 }
 @media only screen and (min-width: 768px) {
     /* For desktop: */
+    .displayReg li{
+      display: inline-block;
+      margin-right: 7px;
+    }
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
     .col-3 {width: 25%;}
@@ -86,6 +109,11 @@ html {
     }
     .inPutSize{
       size : 60;
+    }
+    .moveToRight::after {
+          content: "";
+          clear: both;
+          display: table;
     }
 }
 /* Buttons

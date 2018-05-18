@@ -6,31 +6,47 @@
       <link rel = "stylesheet" href="css/registration_numbers.css">
   </head>
   <body onLoad = "changeSelect();">
+    <div class = "header">
+      <h1>Registration Numbers</h1>
+    </div>
     <div class = "container">
-      <div class = "header">
-        <h1>Registration Numbers</h1>
+      <div class="appInstruction">
+        <p>In the Western Cape registration numbers, we looking for those of the following towns:
+          <ul>
+            <li>Cape Town, the registration number starts with <span class="plates"><i>CA</i></span></li>
+            <li>Bellvile, the registration number starts with <span class="plates"><i>CY</i></span></li>
+            <li>Paarl, the registration number starts with <span class="plates"><i>CJ</i></span></li>
+            <li>Hermanus, the registration number starts with <span class="plates"><i>CEM</i></span></li>
+          </ul>
+          <i>When no town is selected, all registration numbers for above mentioned towns entered by the user will be displayed. </i>
+          <i>Any other registration number, word or digits will be considered invalid. </i>
+        </p>
       </div>
       <div class="row">
-        <div class = "col-6 moveToRight">
+        <div class = "col-6">
           <form>
             <p>
-              Registration Number:
-                <input type="text" name = "registration_number" class = "inPutSize regNum" placeholder="Ente registrations plate" maxlength="10" />
+              <span>Registration Number:<span>
+                <input type="text" name = "registration_number" class = "inPutSize regNum" placeholder="Enter vehicle number plate" maxlength="10" />
             </p>
           </form>
         </div>
       </div>
+
       <div class="row">
-        <div class='col-4 moveToRight'>
-          <button class="button-primary " on type="button" name="button" id ="addReg">Add</button>
-        </div>
+          <div class ="col-4" >
+            <button class="button-primary" on type="button" name="button" id ="addReg">Add </button>
+          </div>
+          <div class ="col-6" >
+            <button class="button-primary" on type="button" name="button" id ="reset">Reset</button>
+          </div>
       </div>
-      <div class="row">
-        <div class='col-4 moveToRight'>
-          <button class="button-primary " on type="button" name="button" id ="reset">Reset</button>
-        </div>
+
+      <div class=" row displayInstruction">
+        <span id ='plate'></span><span id = "footer"></span>
       </div>
-      <div class = "row ">
+
+      <div class = "row">
         <form class="col-8 moveToRight " name ="formten">
           <p>Select Town</p>
           <select name="towns" id ="townBox" onchange="changeSelect();">
@@ -42,15 +58,14 @@
           </select>
         </form>
       </div>
+  </div>
       <div class = "row">
-        <div class = "col-8 moveToRight displayReg">
+        <div class = "col-8 displayReg">
           <ul class = "addHere">
           </ul>
       </div>
     </div>
-    <div class="footer">
-      <p><span id ='plate'></span><span id = "footer"></span></p>
-    </div>
+
   </body>
   <script src="js/registration_numbers.js"></script>
   <script src="js/regstration_numbers-dom.js"></script>

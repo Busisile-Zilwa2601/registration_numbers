@@ -36,15 +36,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML =' plate added on Bellville';
+          message.innerHTML =' The registration number,is added on Bellville list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML =' plate added on Paarl';
+          message.innerHTML =' The registration number,is added on Paarl list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Hermanus';
+          message.innerHTML = ' The registration number,is added on Hermanus list';
         }
       }
     }
@@ -62,15 +62,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Cape Town';
+          message.innerHTML = ' The registration number, is added on Cape Town list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Paarl';
+          message.innerHTML = ' The registration number, is added on Paarl list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Hermanus';
+          message.innerHTML = ' The registration number, is added on Hermanus list';
         }
       }
     }
@@ -87,15 +87,15 @@ function addRegFunction(){
         console.log(startString);
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Bellville';
+          message.innerHTML = ' The registration number, is added on Bellville list';
         }
         else if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Cape Town';
+          message.innerHTML = ' The registration number, is added on Cape Town list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Hermanus';
+          message.innerHTML = ' The registration number, is added on Hermanus list';
         }
       }
     }
@@ -111,15 +111,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Bellville';
+          message.innerHTML = ' The registration number, is added on Bellville list';
         }
         else if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Cape Town';
+          message.innerHTML = ' The registration number, is added on Cape Town list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' plate added on Paarl';
+          message.innerHTML = ' The registration number, is added on Paarl list';
         }
       }
     }
@@ -132,7 +132,7 @@ function addRegFunction(){
   //The the user input is only digits or is not plate of the cities
   else{
       if(reg.enter(regNumValue) === undefined)
-      message.innerHTML = (regNumValue + " invalid");
+        message.innerHTML = " This input  " +regNumValue + " does not belong to any of the four towns. ";
   }
   //remove the text on the input
   if(!regNum.value || regNum != regNum.defaultValue){
