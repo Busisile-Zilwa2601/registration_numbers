@@ -13,7 +13,8 @@ function addRegFunction(){
   var newElement = document.createElement('li');//create an empty <li> element
   regNumValue = regNum.value;//store the value of the user input
   var userSelection = dropDown.options[dropDown.selectedIndex].value;//store the value of user selection
-  if(reg.enter(regNumValue)){//returns true if the user input is not digits and is one of the cities
+
+  if(reg.enter(regNumValue) ){//returns true if the user input is not digits and is one of the cities
     if(reg.size(objReg)>1 || localStorage['registration_numbers']){//check the size of the object and existance of localStorage
       objReg = Object.assign(objReg , reg.objtempReg);//we increment the existing object and localStorage
     }
@@ -133,6 +134,9 @@ function addRegFunction(){
   else{
       if(reg.enter(regNumValue) === undefined)
         message.innerHTML = " This input  " +regNumValue + " does not belong to any of the four towns. ";
+      if(!regex.test(regNumValue)){
+        message.innerHTML = "The vehicle registration number format is follows /'AB 111-111/' ";
+      }
   }
   //remove the text on the input
   if(!regNum.value || regNum != regNum.defaultValue){
@@ -146,54 +150,52 @@ var addRegBtn = document.getElementById('addReg');
 addRegBtn.addEventListener('click', addRegFunction);
 //This function is for printing the plates of the selected town
 function changeSelect(){
-  console.log(list.children.length);
   message.innerHTML = '';
   plate.innerHTML = '';
   for(var i =0; i = list.children.length ; i){
       list.removeChild(list.children[0]);
   }
-  console.log(list.children);
   if(dropDown.options[dropDown.selectedIndex].value === 'capetown'){
-    if(reg.allCape(objReg).length !=0){
-      for(var i = 0; i < reg.allCape(objReg).length; i++){
+    if(reg.filter('capetown').length !=0){
+      for(var i = 0; i < reg.filter('capetown').length; i++){
         var newElement = document.createElement('li');
-        newElement.innerHTML = reg.allCape(objReg)[i];
+        newElement.innerHTML = reg.filter('capetown')[i];
         list.appendChild(newElement);
       }
     }
   }
   else if(dropDown.options[dropDown.selectedIndex].value === 'bellville'){
-    if(reg.allBellville(objReg).length != 0){
-      for(var i = 0; i < reg.allBellville(objReg).length; i++){
+    if(reg.filter('bellville').length != 0){
+      for(var i = 0; i < reg.filter('bellville').length; i++){
         var newElement = document.createElement('li');
-        newElement.innerHTML = reg.allBellville(objReg)[i];
+        newElement.innerHTML = reg.filter('bellville')[i];
         list.appendChild(newElement);
       }
     }
   }
   else if(dropDown.options[dropDown.selectedIndex].value === 'paarl'){
-    if(reg.allPaarl(objReg).length != 0){
-      for(var i = 0; i < reg.allPaarl(objReg).length; i++){
+    if(reg.filter('paarl').length != 0){
+      for(var i = 0; i < reg.filter('paarl').length; i++){
         var newElement = document.createElement('li');
-        newElement.innerHTML = reg.allPaarl(objReg)[i];
+        newElement.innerHTML = reg.filter('paarl')[i];
         list.appendChild(newElement);
       }
     }
   }
   else if(dropDown.options[dropDown.selectedIndex].value === 'hermanus'){
-    if(reg.allHer(objReg).length != 0){
-      for(var i = 0; i < reg.allHer(objReg).length; i++){
+    if(reg.filter('hermanus').length != 0){
+      for(var i = 0; i < reg.filter('hermanus').length; i++){
         var newElement = document.createElement('li');
-        newElement.innerHTML = reg.allHer(objReg)[i];
+        newElement.innerHTML = reg.filter('hermanus')[i];
         list.appendChild(newElement);
       }
     }
   }
   else{
-    if(reg.size(objReg) != 0){
-      for(var i = 0; i < reg.size(objReg); i++){
+    if(reg.filter('all') != 0){
+      for(var i = 0; i < reg.filter('all').length; i++){
         var newElement = document.createElement('li');
-        newElement.innerHTML = Object.keys(objReg)[i];
+        newElement.innerHTML = reg.filter('all')[i];
         list.appendChild(newElement);
       }
     }
@@ -205,7 +207,7 @@ function resetStorage(){
     objReg = new Object();
     message.innerHTML = '';
     plate.innerHTML = '';
-    for(var i =0; i = list.children.length ; i){
+    for(var i =0; i < list.children.length ; ){
         list.removeChild(list.children[0]);
     }
   }

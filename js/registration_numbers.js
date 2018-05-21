@@ -1,7 +1,7 @@
 function RegistrationNumbers(){
   var temp = {};
   var takeReg = function(registration_number){
-    if(Number.isNaN(Number(registration_number)) && (isCapeTown(registration_number) || isBellville(registration_number) ||isPaarl(registration_number) || isHermanus(registration_number))){
+    if(Number.isNaN(Number(registration_number)) && regValidate(registration_number) &&(isCapeTown(registration_number) || isBellville(registration_number) ||isPaarl(registration_number) || isHermanus(registration_number))){
       if(temp[registration_number.toUpperCase()] === undefined){
         temp[registration_number.toUpperCase()] = 0;
       }
@@ -14,80 +14,71 @@ function RegistrationNumbers(){
       }
     }
   }
+  //validate format
+  var regValidate = function(registration_number){
+    var regex = /^[a-zA-Z]{2,3}(\s)[0-9]{3}(\-)[0-9]{3}$/
+    return regex.test(registration_number);
+  }
+  //check whether the registration number is from cape town
   var isCapeTown = function(registration_number){
       return (registration_number.trim().toUpperCase()).startsWith('CA');
   }
+  //check whether the registration number is from bellville
   var isBellville = function(registration_number){
     return (registration_number.trim().toUpperCase()).startsWith('CY');
   }
+  //check whether the registration number is from Paarl
   var isPaarl = function(registration_number){
     return (registration_number.trim().toUpperCase()).startsWith('CJ');
   }
+  //check whether the registration number is from hermunas
   var isHermanus = function(registration_number){
     return (registration_number.trim().toUpperCase()).startsWith('CEM');
   }
-
-  var regFromTown = function(registration_number , town){
-    if(registration_number != '' && town != ''){
-      if((registration_number.trim().toUpperCase()).startsWith('CA') && town === 'capetown'){
-        return registration_number.toUpperCase();
+  //filter by town
+  var myFilter = function(town){
+    var capetownArr = [];
+    var bellvilleArr =[];
+    var paarlArr = [];
+    var hermanusArr = [];
+    var allArr = [];
+    if(town === 'capetown'){
+      for(var i = 0; i < sizeObj(temp); i++){
+        if(isCapeTown(Object.keys(temp)[i] ) ){
+          capetownArr.push(Object.keys(temp)[i]);
+        }
       }
-      else if((registration_number.trim().toUpperCase()).startsWith('CY') && town === 'bellville'){
-        return registration_number.toUpperCase();
-      }
-      else if((registration_number.trim().toUpperCase()).startsWith('CJ') && town==='paarl'){
-        return registration_number.toUpperCase();
-      }
-      else if((registration_number.trim().toUpperCase()).startsWith('CEM') && town==='hermunas'){
-        return registration_number.toUpperCase();
-      }
-      else if(registration_number ===''){
-      }
+      return capetownArr;
     }
-    else if(registration_number ==='' && town === 'all'){
+    else if(town === 'bellville'){
+      for(var i = 0; i < sizeObj(temp); i++){
+        if(isBellville(Object.keys(temp)[i]) ){
+          bellvilleArr.push(Object.keys(temp)[i]);
+        }
+      }
+      return bellvilleArr
+    }
+    else if(town === 'paarl'){
+      for(var i = 0; i < sizeObj(temp); i++){
+        if( isPaarl(Object.keys(temp)[i])){
+          paarlArr.push(Object.keys(temp)[i]);
+        }
+      }
+      return paarlArr;
+    }
+    else if(town === "hermanus"){
+      for(var i = 0; i < sizeObj(temp); i++){
+        if(isHermanus(Object.keys(temp)[i])){
+          hermanusArr.push(Object.keys(temp)[i]);
+        }
+      }
+      return hermanusArr;
+    }
+    else if(town === 'all'){
       for(var key in temp)
-        return key.toUpperCase();
+        allArr.push(key.toUpperCase());
       }
-  }
-  //all cape town registrations
-  var allregFromCapeTown = function(temp){
-    var myArr = [];
-    for(var i = 0; i < sizeObj(temp); i++){
-      if(isCapeTown(Object.keys(temp)[i] ) ){
-        myArr.push(Object.keys(temp)[i]);
-      }
-    }
-    return myArr;
-  }
-  //all bellville registrations
-  var allregFromBellvile = function(temp){
-    var myArr = [];
-    for(var i = 0; i < sizeObj(temp); i++){
-      if(isBellville(Object.keys(temp)[i]) ){
-        myArr.push(Object.keys(temp)[i]);
-      }
-    }
-    return myArr;
-  }
-  //all paarl registrations
-  var allregFromPaarl = function(temp){
-    var myArr = [];
-    for(var i = 0; i < sizeObj(temp); i++){
-      if( isPaarl(Object.keys(temp)[i])){
-        myArr.push(Object.keys(temp)[i]);
-      }
-    }
-    return myArr;
-  }
-  //all hermunas registrations
-  var allregFromHermanus = function(temp){
-    var myArr = [];
-    for(var i = 0; i < sizeObj(temp); i++){
-      if(isHermanus(Object.keys(temp)[i])){
-        myArr.push(Object.keys(temp)[i]);
-      }
-    }
-    return myArr;
+      return allArr;
   }
   //returns the size of the object
   var sizeObj = function(temp){
@@ -107,21 +98,17 @@ function RegistrationNumbers(){
   var returnFirst = function(temp){
     return Object.keys(temp)[0];
   }
-
   return{
     enter : takeReg,
-    regTown : regFromTown,
+    filter : myFilter,
     checkCape : isCapeTown,
     checkBell : isBellville,
     checkPaarl : isPaarl,
     checkHer : isHermanus,
-    allCape : allregFromCapeTown,
-    allBellville : allregFromBellvile,
-    allPaarl : allregFromPaarl,
-    allHer : allregFromHermanus,
     objtempReg : temp,
     size : sizeObj,
     last : returnLast,
     first : returnFirst,
+    validate : regValidate,
   }
 }
