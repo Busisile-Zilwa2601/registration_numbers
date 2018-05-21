@@ -21,7 +21,6 @@ function addRegFunction(){
     else{//empty object and no localStorage
       objReg = reg.objtempReg;//create new object
     }
-    console.log(objReg);
     var lastElem = reg.last(objReg);//store the last value added on the object
     if(userSelection === 'capetown'){//check the user selection is cape town
       if(reg.checkCape(lastElem)){//check the user input is cape town plates
@@ -37,15 +36,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML =' The registration number,is added on Bellville list';
+          message.innerHTML =' ,is added on Bellville list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML =' The registration number,is added on Paarl list';
+          message.innerHTML =' ,is added on Paarl list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number,is added on Hermanus list';
+          message.innerHTML = ' ,is added on Hermanus list';
         }
       }
     }
@@ -63,15 +62,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Cape Town list';
+          message.innerHTML = ' , is added on Cape Town list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Paarl list';
+          message.innerHTML = ' , is added on Paarl list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Hermanus list';
+          message.innerHTML = ' , is added on Hermanus list';
         }
       }
     }
@@ -88,15 +87,15 @@ function addRegFunction(){
         console.log(startString);
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Bellville list';
+          message.innerHTML = ' , is added on Bellville list';
         }
         else if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Cape Town list';
+          message.innerHTML = ' , is added on Cape Town list';
         }
         else{
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Hermanus list';
+          message.innerHTML = ' , is added on Hermanus list';
         }
       }
     }
@@ -112,15 +111,15 @@ function addRegFunction(){
         var startString = (lastElem.substring(0,2)).toUpperCase();
         if(startString === "CY"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Bellville list';
+          message.innerHTML = ' , is added on Bellville list';
         }
         else if(startString === "CA"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Cape Town list';
+          message.innerHTML = ' , is added on Cape Town list';
         }
         else if(startString === "CJ"){
           plate.innerHTML = lastElem;
-          message.innerHTML = ' The registration number, is added on Paarl list';
+          message.innerHTML = ' , is added on Paarl list';
         }
       }
     }
@@ -135,7 +134,7 @@ function addRegFunction(){
       if(reg.enter(regNumValue) === undefined)
         message.innerHTML = " This input  " +regNumValue + " does not belong to any of the four towns. ";
       if(!reg.validate(regNumValue)){
-        message.innerHTML = "The vehicle registration number format is follows /'AB 111-111/' ";
+        message.innerHTML = "The correct vehicle registration number format is follows /'AB 111-111/' ";
       }
   }
   //remove the text on the input
@@ -207,7 +206,7 @@ function resetStorage(){
     objReg = new Object();
     message.innerHTML = '';
     plate.innerHTML = '';
-    for(var i =0; i < list.children.length ; ){
+    for(var i =0; i < list.children.length ;i++ ){
         list.removeChild(list.children[0]);
     }
   }
