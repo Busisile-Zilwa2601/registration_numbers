@@ -134,7 +134,7 @@ function addRegFunction(){
   else{
       if(reg.enter(regNumValue) === undefined)
         message.innerHTML = " This input  " +regNumValue + " does not belong to any of the four towns. ";
-      if(!regex.test(regNumValue)){
+      if(!reg.validate(regNumValue)){
         message.innerHTML = "The vehicle registration number format is follows /'AB 111-111/' ";
       }
   }
