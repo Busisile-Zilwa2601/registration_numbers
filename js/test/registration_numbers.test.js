@@ -7,49 +7,9 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CJ 322-937');
     reg.enter('cem 937-554');
     //reg.objtempReg
-    assert.deepEqual(reg.filter('all'), ['CA 123-122','CA 123-125','CY 231-122','CJ 322-937','CEM 937-554']);
+    assert.deepEqual(reg.filter(reg.objtempReg,'all'), ['CA 123-122','CA 123-125','CY 231-122','CJ 322-937','CEM 937-554']);
     assert.deepEqual(reg.enter('CA 123-125'), false);
   });
-/*
-  it("It should return a registration number from Cape Town", function(){
-    var reg = RegistrationNumbers();
-    reg.enter('CA 123 122');
-    reg.enter('CA 123 125');
-    reg.enter('CY 231 122');
-    reg.enter('CJ 322 937');
-    reg.enter('cem 937 554');
-    assert.deepEqual(reg.regTown('CA 123 122','capetown'), 'CA 123 122');
-    assert.deepEqual(reg.regTown('CA 123 125','capetown'), 'CA 123 125');
-  });
-  it("It should return a registration number from Bellville", function(){
-    var reg = RegistrationNumbers();
-    reg.enter('CA 123 122');
-    reg.enter('CA 123 125');
-    reg.enter('CY 231 122');
-    reg.enter('CJ 322 937');
-    reg.enter('cem 937 554');
-    assert.deepEqual(reg.regTown('CY 231 122','bellville'), 'CY 231 122');
-  });
-  it("It should return a registration number from Paarl", function(){
-    var reg = RegistrationNumbers();
-    reg.enter('CA 123 122');
-    reg.enter('CA 123 125');
-    reg.enter('CY 231 122');
-    reg.enter('CJ 322 937');
-    reg.enter('cem 937 554');
-    assert.deepEqual(reg.regTown('CJ 322 937','paarl'), 'CJ 322 937');
-  });
-
-  it("It should return a registration number from Hermunas", function(){
-    var reg = RegistrationNumbers();
-    reg.enter('CA 123 122');
-    reg.enter('CA 123 125');
-    reg.enter('CY 231 122');
-    reg.enter('CJ 322 937');
-    reg.enter('cem 937 554');
-    assert.deepEqual(reg.regTown('cem 937 554','hermunas'), 'CEM 937 554');
-  });
-*/
   it("It should return the last registration numbers", function(){
     var reg = RegistrationNumbers();
     var myObj = {};
@@ -69,7 +29,7 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CY 231-122');
     reg.enter('CJ 322-937');
     reg.enter('cem 937-554');
-    assert.deepEqual(reg.filter('capetown'), ['CA 123-122', 'CA 123-125']);
+    assert.deepEqual(reg.filter(reg.objtempReg,'capetown'), ['CA 123-122', 'CA 123-125']);
   });
   it("It should return Bellville registration numbers in an Array", function(){
     var reg = RegistrationNumbers();
@@ -83,7 +43,7 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CY 231-722');
     assert.deepEqual(reg.enter('CY 122'), undefined);
     assert.deepEqual(reg.enter('CY 231'), undefined);
-    assert.deepEqual(reg.filter('bellville'), ['CY 231-122', 'CY 331-122', 'CY 231-128', 'CY 231-722']);
+    assert.deepEqual(reg.filter(reg.objtempReg,'bellville'), ['CY 231-122', 'CY 331-122', 'CY 231-128', 'CY 231-722']);
   });
   it("It should return Paarl registration numbers in an Array", function(){
     var reg = RegistrationNumbers();
@@ -97,7 +57,7 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CJ 231-822');
     assert.deepEqual(reg.enter('CJ 122'),undefined);
     assert.deepEqual(reg.enter('CJ 231'), undefined);
-    assert.deepEqual(reg.filter('paarl'), ['CJ 322-937', 'CJ 231-112', 'CJ 231-822']);
+    assert.deepEqual(reg.filter(reg.objtempReg,'paarl'), ['CJ 322-937', 'CJ 231-112', 'CJ 231-822']);
   });
   it("It should return Hermunas registration numbers in an Array", function(){
     var reg = RegistrationNumbers();
@@ -109,7 +69,7 @@ describe("The RegistrationNumbers", function(){
     reg.enter('CY 231-122');
     reg.enter('CJ 231-312');
     reg.enter('CJ 231-922');
-    assert.deepEqual(reg.filter('hermanus'), ['CEM 123-122', 'CEM 937-554']);
+    assert.deepEqual(reg.filter(reg.objtempReg,'hermanus'), ['CEM 123-122', 'CEM 937-554']);
   });
   it("It should return true, if the format is correct, false if its not", function(){
     var reg = RegistrationNumbers();

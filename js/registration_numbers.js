@@ -36,7 +36,7 @@ function RegistrationNumbers(){
     return (registration_number.trim().toUpperCase()).startsWith('CEM');
   }
   //filter by town
-  var myFilter = function(town){
+  var myFilter = function(temp,town){
     var capetownArr = [];
     var bellvilleArr =[];
     var paarlArr = [];
