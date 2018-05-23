@@ -16,7 +16,7 @@
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
-/*box-sizing: border-box;*/ }
+  box-sizing: border-box; }
 
 .inPutSize{
   size : 20;
@@ -72,13 +72,14 @@ html {
   text-align: center;
 }
 .appInstruction{
-  padding: 7px;
+  padding: 3.5px;
   margin: 7px;
   border: 2px solid grey;
   border-radius: 5px;
   text: center;
   font-family:"Times New Roman", Helvetica, cursive ,fantasy,Times, Arial;
   font-weight: 200;
+  font-size: 10px;
   color: black;
 }
 .footer{

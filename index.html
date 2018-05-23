@@ -10,36 +10,34 @@
       <h1>Registration Numbers</h1>
     </div>
     <div class = "container">
-      <div class="appInstruction">
-        <p>In the Western Cape registration numbers, we looking for those of the following towns:
-          <ul>
-            <li>Cape Town, the registration number starts with <span class="plates"><i>CA</i></span></li>
-            <li>Bellvile, the registration number starts with <span class="plates"><i>CY</i></span></li>
-            <li>Paarl, the registration number starts with <span class="plates"><i>CJ</i></span></li>
-            <li>Hermanus, the registration number starts with <span class="plates"><i>CEM</i></span></li>
-          </ul>
-          <i>When no town is selected, all registration numbers for above mentioned towns entered by the user will be displayed. </i>
-          <i>Any other registration number, word or digits will be considered invalid. </i>
-        </p>
-      </div>
+
       <div class="row">
-        <div class = "col-6">
+        <div class="appInstruction col-3">
+          <p>Tips:
+            <ul>
+              <li>Cape Town, the registration number starts with <span class="plates"><i>CA</i></span></li>
+              <li>Bellvile, the registration number starts with <span class="plates"><i>CY</i></span></li>
+              <li>Paarl, the registration number starts with <span class="plates"><i>CJ</i></span></li>
+              <li>Hermanus, the registration number starts with <span class="plates"><i>CEM</i></span></li>
+            </ul>
+          </p>
+        </div>
+        <div class = "col-8">
           <form>
             <p>
               <span>Registration Number:<span>
                 <input type="text" name = "registration_number" class = "inPutSize regNum" placeholder="Enter vehicle number plate" maxlength="11" />
             </p>
           </form>
+          <div class ="" >
+            <button class="button-primary" on type="button" name="button" id ="addReg">Add </button>
+            <button class="button-primary" on type="button" name="button" id ="reset">Reset</button>
+          </div>
         </div>
       </div>
 
       <div class="row">
-          <div class ="col-4" >
-            <button class="button-primary" on type="button" name="button" id ="addReg">Add </button>
-          </div>
-          <div class ="col-6" >
-            <button class="button-primary" on type="button" name="button" id ="reset">Reset</button>
-          </div>
+
       </div>
 
       <div class=" row displayInstruction">
