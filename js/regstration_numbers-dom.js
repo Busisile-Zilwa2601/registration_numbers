@@ -212,5 +212,9 @@ function resetStorage(){
     }
   }
 }
+function reLoad(){
+  location.reload();
+}
 var resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', resetStorage);
+resetBtn.addEventListener('click', reLoad);
