@@ -218,3 +218,12 @@ function reLoad(){
 var resetBtn = document.getElementById('reset');
 resetBtn.addEventListener('click', resetStorage);
 resetBtn.addEventListener('click', reLoad);
+window.addEventListener('load', function(){
+  if(reg.filter(objReg,'all') != 0){
+    for(var i = 0; i < reg.filter(objReg,'all').length; i++){
+      var newElement = document.createElement('li');
+      newElement.innerHTML = reg.filter(objReg,'all')[i];
+      list.appendChild(newElement);
+    }
+  }
+});
